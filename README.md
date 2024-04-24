@@ -1,5 +1,5 @@
 # Overview
-As I continue to try and find professional pieces to learn from there have been a few consistent features I have found within all of them. I aimed in this project to recreate one of these popular web features.
+As I continue to try and find professional pieces to learn from there have been a few consistent features I have found within all of them. I aimed in this project to recreate one of these popular web features. About 3-4 hours were spent in total for the creation of this project, report, and linked video.
 
 The feature that I recreated was an ever changing animation that acts almost as a text input. This is to give the appearnace that someone is deleting and updating a line. The code will ask for a user's name. Once given it will display the container and begin with saying Hello World! It will then remove the word world almost as if it typed that by mistake and retype the word "programmer" and then repeat the process to type the given "name" in a loop.
 

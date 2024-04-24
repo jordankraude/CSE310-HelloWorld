@@ -7,43 +7,48 @@ document.addEventListener("DOMContentLoaded", function() {
     let currentIndex = 0;
     let isCycling = false;
     let intervalId;
-    const greetings = ["World!", "Programmer!"];
+    const greetings = [" World!", " Programmer!"];
 
     function typeAndDelete(text) {
+        startBlinking();
         let displayText = "Hello ";
         let index = 0;
         let typingInterval = setInterval(function() {
+            stopBlinking();
             displayText += text[index];
-            helloHeader.textContent = displayText;
+            helloHeader.textContent = displayText + " ";
             index++;
             if (index >= text.length) {
                 clearInterval(typingInterval);
                 setTimeout(function() {
                     let deletingIndex = text.length;
                     let deletingInterval = setInterval(function() {
+                        stopBlinking();
                         displayText = "Hello " + text.substring(0, deletingIndex);
                         helloHeader.textContent = displayText;
                         deletingIndex--;
                         if (deletingIndex < 0) {
                             clearInterval(deletingInterval);
                             isCycling = false; // Set cycling flag to false after deleting
-                            stopBlinking();
+
                         }
-                    }, 100);
-                }, 3000);
+                    }, 80);
+                }, 2000);
                 startBlinking();
             }
-        }, 100);
+        }, 80);
+        startBlinking();
     }
 
     function startBlinking() {
         setTimeout(function() {
             cursor.classList.add('blinking');
-        }, 500)
+        }, 400)
     }
     
     function stopBlinking() {
         cursor.classList.remove('blinking');
+        cursor.style.opacity = '1'
     }
 
     function cycleGreetings() {
@@ -57,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function startCycling() {
         cycleGreetings();
-        intervalId = setInterval(cycleGreetings, 2000);
+        intervalId = setInterval(cycleGreetings, 500);
     }
 
     function stopCycling() {
@@ -66,26 +71,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
     submitButton.addEventListener("click", function() {
         container.style.display = 'flex'
-        greetings.push(inputField.value + "!");
+        greetings.push(" " + inputField.value + "!");
         inputField.disabled = true;
         submitButton.style.display = "none";
         inputField.style.display = "none";
-        setTimeout(startCycling(), 500)
+        setTimeout(startCycling(), 200)
         ;
-    });
-
-    inputField.addEventListener("input", function() {
-        stopCycling();
-        inputField.disabled = false;
-        submitButton.style.display = "inline-block";
-        helloHeader.textContent = "Hello " + inputField.value;
-    });
-
-    inputField.addEventListener("focus", function() {
-        cursor.style.opacity = 1;
-    });
-
-    inputField.addEventListener("blur", function() {
-        cursor.style.opacity = 0;
     });
 });
