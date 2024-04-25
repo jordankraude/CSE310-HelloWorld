@@ -7,7 +7,7 @@ My goal was to learn how to implement this professional feature so that I could 
 
 Here's a short demonstration of the project:
 
-[Software Demo Video](http://youtube.link.goes.here)
+[Software Demo Video](https://youtu.be/n8XCwW4gR8Q)
 
 # Development Environment
 I didn't need to use any special tools besides a live server that could display my code in a browser setting.
